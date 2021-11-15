@@ -26,13 +26,10 @@ def calculate_factorial(inp):
     # 1. Test if possible
     if inp is None:
         return None
-    if isinstance(inp, str):
-        try:
-            number = int(inp)
-        except:
-            raise TypeError("TypeError: string")
-    else:
-        number = inp
+    try:
+        number = int(inp)
+    except:
+        raise TypeError("TypeError: string")
 
     if number < 0:
         raise ValueError("ValueError: number negative")

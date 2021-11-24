@@ -11,13 +11,15 @@ cone_1 = Cone(2, 4, 2, "red", True)
 # Create another cone object
 cone_2 = Cone(5.64, 4.2, 8.7, "black", False)
 # Create a cube object
-cube = Cube(7.2, "white", True)
+cube = Cube(7, "white", True)
 
 print(f"Color of the cube object is: {cube.get_color()}")
 # Update cube color
 cube.set_color("yellow")
 # See if the color of cube object is changed
 print(f"Color of the cube object is: {cube.get_color()}")
+
+print(f"Area of the cube is: {cube.get_area()} and volume of the cube is: {cube.get_volume()}")
 
 # See the area and volume of the cone_1
 print(

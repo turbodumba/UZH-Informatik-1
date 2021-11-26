@@ -12,6 +12,8 @@ class TestShops(TestCase):
         bakery.take_loan(0.1, 1000)
         actual = bakery.pay_rent_and_loan(100)
         self.assertEqual(280.0, actual)
+        with self.assertRaises(Warning):
+            bakery.pay_rent_and_loan(69000)
 
     def test_bakery_already_has_a_loan(self):
         bakery = Bakery(1000)

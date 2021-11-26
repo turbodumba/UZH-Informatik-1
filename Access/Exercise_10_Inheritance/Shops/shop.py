@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+from abc import ABC, abstractmethod
 
 
-class Shop:
+class Shop(ABC):
 
     def __init__(self, capital):
         self._capital = capital
@@ -26,12 +27,15 @@ class Shop:
         self.add_procured_units(units)
         self._capital -= units * price_per_unit
 
+    @abstractmethod
     def add_procured_units(self, units):
         pass
 
+    @abstractmethod
     def get_produced_units(self):
         pass
 
+    @abstractmethod
     def set_produced_units(self, units):
         pass
 
@@ -60,4 +64,4 @@ class Shop:
 
     def get_status(self):
         return (
-        self._capital, self.__loan, self.__interest, self.__initial_loan_amount)
+            self._capital, self.__loan, self.__interest, self.__initial_loan_amount)

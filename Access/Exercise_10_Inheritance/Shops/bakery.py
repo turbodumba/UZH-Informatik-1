@@ -6,25 +6,39 @@ from shop import Shop
 class Bakery(Shop):
 
     def __init__(self, capital):
-        pass
+        super().__init__(capital)
+        self.__dough = 0
+        self.__bread = 0
 
     def sell(self, price_per_unit, units):
-        pass
+        super().sell(price_per_unit * 0.75, units)
 
     def produce(self, costs_per_unit):
-        pass
+        if self.__dough * costs_per_unit > self._capital:
+            amount_prod = self._capital // costs_per_unit
+            self.__bread += amount_prod
+            self.__dough -= amount_prod
+            self._capital -= amount_prod * costs_per_unit
+            raise Warning("Shop low on money")
+        self.__bread += self.__dough
+        self._capital -= self.__dough * costs_per_unit
+        self.__dough = 0
 
     def add_procured_units(self, units):
-        pass
+        self.__dough += units
 
     def get_produced_units(self):
-        pass
+        return self.__bread
 
     def set_produced_units(self, units):
-        pass
+        self.__bread = units
 
     def pay_rent_and_loan(self, rent):
-        pass
+        amount_owed = super().pay_rent_and_loan(0.8 * rent)
+        return amount_owed
 
     def get_status(self):
-        pass
+        lists = list(super().get_status())
+        lists.append(self.__dough)
+        lists.append(self.__bread)
+        return tuple(lists)

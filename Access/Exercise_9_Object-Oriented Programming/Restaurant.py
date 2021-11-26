@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # Create menu list
     menu_list = [hamburger, pizza]
     # Create order list
-    order_list = [fish]
+    order_list = [fish, pizza]
     # Create restaurant object with name and menu list
     restaurant = Restaurant("Zurich_1", menu_list)
     # Create an order with the order list

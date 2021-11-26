@@ -6,19 +6,25 @@ from shop import Shop
 class ClothingStore(Shop):
 
     def __init__(self, capital):
-        pass
+        super().__init__(capital)
+        self.__clothing_pieces = 0
 
     def procure(self, price_per_unit, units):
-        pass
+        if units > 10:
+            super().procure(price_per_unit * 0.8, units)
+        else:
+            super().procure(price_per_unit, units)
 
     def add_procured_units(self, units):
-        pass
+        self.__clothing_pieces += units
 
     def get_produced_units(self):
-        pass
+        return self.__clothing_pieces
 
     def set_produced_units(self, units):
-        pass
+        self.__clothing_pieces = units
 
     def get_status(self):
-        pass
+        lists = list(super().get_status())
+        lists.append(self.__clothing_pieces)
+        return tuple(lists)

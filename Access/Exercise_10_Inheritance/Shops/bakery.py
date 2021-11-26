@@ -39,6 +39,5 @@ class Bakery(Shop):
 
     def get_status(self):
         lists = list(super().get_status())
-        lists.append(self.__dough)
-        lists.append(self.__bread)
+        lists.extend([self.__dough, self.__bread])
         return tuple(lists)

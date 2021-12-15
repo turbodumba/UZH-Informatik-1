@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# TODO: Implement Me!
 from game_logic import GameLogic
 from random import choice
 

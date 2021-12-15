@@ -20,7 +20,6 @@ class WordLogic(object):
         words = self.find_words_with_right_size()
         random.shuffle(words)
 
-        # TODO: instead of returning a random sample of words, use the strategy described in task 2
         ret_list = []
         for i in range(floor(self.num_words / 3)):
             ret_list.append(words.pop(words.index(random.choice(words))))
